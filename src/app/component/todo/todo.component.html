@@ -1,0 +1,8 @@
+
+<div fxLayout = "column" cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let movie of movies index as i" cdkDrag>
+    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+   {{i}}: {{movie}}
+  </div>
+</div>
+

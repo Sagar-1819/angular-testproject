@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>TODOLIST</mat-card-title>
+
+    </mat-card-header>
+
+    <mat-card-content>
+      <div>
+          <mat-form-field>
+
+            <input matInput type="text" [(ngModel)]="one" placeholder="Todo Task">
+
+          </mat-form-field>
+
+
+          <button  style="margin-left:10px;" (click)="onClick()" mat-flat-button color="primary">ADD</button>
+
+          <table  *ngFor = "let i of todolist; let index = index">
+
+
+
+                <tr>&nbsp;&nbsp;&nbsp;
+               {{i}}
+                   <button  mat-icon-button style="margin-left:80px;float:right;"   color="primary">
+                   <mat-icon>edit</mat-icon>&nbsp;&nbsp;&nbsp;
+
+                   <mat-icon   mat-icon-button (click)="deleteTask(index)"  color="warn" >delete</mat-icon>
+            </button>
+
+          </tr>
+
+        </table>
+
+          </div>
+
+
+    </mat-card-content>
+  </mat-card>

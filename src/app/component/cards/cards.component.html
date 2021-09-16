@@ -1,0 +1,66 @@
+
+<div class="container">
+
+
+  <mat-toolbar>
+    <button mat-icon-button>
+    <mat-icon   class="mat-18" (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <span>MEAN STACK </span>
+    <span class="spacer"></span>
+
+      <mat-form-field>
+      <mat-label  style="font-size:medium;">Account</mat-label>
+     <mat-select>
+       <mat-option style="color:blue" (click)="register()" >register</mat-option>
+       <mat-option  style="color:blue"(click)="signin()" >login</mat-option>
+     </mat-select>
+      </mat-form-field>
+    </mat-toolbar>
+
+
+
+  <mat-sidenav-container>
+
+   <mat-sidenav #sidenav (click)="sidenav.toggle()" mode="over">
+    <mat-list>
+      <mat-list-item   [routerLink]="['']" (click)="onClick()" >Home</mat-list-item>
+      <mat-list-item   [routerLink]="['list']" (click)="onChange()" >TODO</mat-list-item>
+      <mat-list-item   [routerLink]="['gallery']" (click)="onChange()">Gallery</mat-list-item>
+      <mat-list-item   [routerLink]="['todo']" (click)="onChange()">Drag&drop</mat-list-item>
+    </mat-list>
+
+    </mat-sidenav>
+
+      <mat-sidenav-content>
+
+
+         <mat-card *ngIf="showimage">
+
+              <h1 style="text-align: center;"> HI SAGAR</h1>
+              <h1 style="text-align: center; "> Welcome to mean stack</h1>
+
+         </mat-card>
+
+
+
+        <router-outlet></router-outlet>
+
+      </mat-sidenav-content>
+
+   </mat-sidenav-container>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

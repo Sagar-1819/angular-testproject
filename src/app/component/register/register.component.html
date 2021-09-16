@@ -1,0 +1,120 @@
+<mat-toolbar>
+  <button mat-icon-button>
+  <mat-icon   class="mat-18" (click)="sidenav.toggle()">menu</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <span>MEAN STACK </span>
+  <span class="spacer"></span>
+
+
+
+     <button mat-button style="background-color: red;color:white; font-size: 15px;" (click)="signin()" >Login</button>
+
+
+  </mat-toolbar>
+
+
+<mat-sidenav-container>
+
+ <mat-sidenav #sidenav  mode="over">
+  <mat-list>
+    <mat-list-item   [routerLink]="['']" (click)="onClick()" >Home</mat-list-item>
+
+  </mat-list>
+
+  </mat-sidenav>
+
+    <mat-sidenav-content>
+
+      <router-outlet></router-outlet>
+
+
+      <mat-card>
+        <div class="main-wrapper" fxLayout.md="row wrap" fxLayout.sm="row wrap" fxLayout.xs="row wrap">
+        <mat-card-header>
+          <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+
+
+       <form [formGroup]="form" (ngSubmit)="submitForm()" class="example-form" >
+
+         <mat-card-content>
+        <mat-form-field class="example-full-width">
+            <mat-label for="firstname"><span>FirstName:</span></mat-label>
+            <input matInput type="text" formControlName="firstName" placeholder="fname">
+
+            <mat-error *ngIf="errorHandling('firstName','required')">
+                   you must provide a <strong>firstName</strong>
+            </mat-error>
+            <mat-icon matSuffix>edit</mat-icon>
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width">
+            <mat-label for="lastName"><span>LastName:</span></mat-label>
+            <input matInput type="text" formControlName="lastName" placeholder="lname">
+
+            <mat-error *ngIf="errorHandling('lastName','required')">
+                you must provide a <strong>lastName</strong>
+         </mat-error>
+         <mat-icon matSuffix>edit</mat-icon>
+
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width">
+            <mat-label for="email"><span>Email:</span></mat-label>
+            <input matInput type="email" formControlName="Email" placeholder="email">
+
+            <mat-error *ngIf="errorHandling('Email','required')">
+                you must provide a <strong>Email</strong>
+         </mat-error>
+         <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width">
+            <mat-label for="phonenumber"><span>phoneNumber:</span></mat-label>
+            <input matInput type="number" formControlName="phoneNumber" placeholder="pnumber">
+
+            <mat-error *ngIf="errorHandling('phoneNumber','required')">
+                you must provide a <strong>phoneNumber</strong>
+         </mat-error>
+         <mat-icon matSuffix>call</mat-icon>
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width">
+            <mat-label for="username"><span>UserName:</span></mat-label>
+            <input matInput type="text" formControlName="userName" placeholder="uname">
+
+            <mat-error *ngIf="errorHandling('userName','required')">
+                you must provide a <strong>userName</strong>
+         </mat-error>
+         <mat-icon matSuffix>perm_identity</mat-icon>
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width">
+            <mat-label for="password"><span>Password:</span></mat-label>
+            <input matInput type="password" formControlName="password" placeholder="pswd">
+
+            <mat-error *ngIf="errorHandling('password','required')">
+                you must provide a <strong>password</strong>
+         </mat-error>
+         <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field><br>
+       </mat-card-content>
+
+           <mat-card-actions fxLayout="row" >
+            <button mat-flat-button color="primary" class="btn-block" >Submit</button>&nbsp;&nbsp;&nbsp;
+            <button mat-flat-button color="warn" (click)="onreset()" class="btn-block">Reset</button>
+          </mat-card-actions>
+
+    </form>
+  </div>
+    </mat-card>
+
+
+
+
+    </mat-sidenav-content>
+
+ </mat-sidenav-container>
+
+
